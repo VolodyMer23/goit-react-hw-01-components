@@ -1,12 +1,13 @@
 import styled from '@emotion/styled';
 
-export const Container = styled.div`
+export const FriendsList = styled.ul`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 40;
-  color: #010101;
-  background-color: #cad6e4;
-  padding: 32px;
+  text-align: center;
+  list-style: none;
+  width: 100%;
+  margin-top: auto;
+  gap: 8px;
 `;

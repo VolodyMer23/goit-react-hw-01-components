@@ -1,8 +1,12 @@
 import { Container } from './App.styled';
-import user from '../Profile/user.json';
+import user from '../Data/user.json';
 import Profile from '../Profile/Profile';
-import data from '../Statistics/data.json';
+import data from '../Data/statistics-data.json';
 import Statistics from '../Statistics/Statistics';
+import friends from '../Data/friends.json';
+import FriendList from '../FriendList/FriendList';
+import TransactionHistory from '../TransactionHistory/TransactionHistory';
+import transactions from '../Data/transactions.json';
 
 export const App = () => {
   return (
@@ -12,11 +16,11 @@ export const App = () => {
         tag={user.tag}
         location={user.location}
         avatar={user.avatar}
-        followers={user.stats.followers}
-        views={user.stats.views}
-        likes={user.stats.likes}
+        stats={user.stats}
       />
       <Statistics title="Upload stats" stats={data} />
+      <FriendList friends={friends} />
+      <TransactionHistory transactions={transactions} />
     </Container>
   );
 };

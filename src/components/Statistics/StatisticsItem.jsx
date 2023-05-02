@@ -1,10 +1,25 @@
 import PropTypes from 'prop-types';
+import {
+  StatsTypeItem,
+  StatsFileExt,
+  StatsUploadPercentage,
+} from './StatisticsItem.styled';
 
-const StatisticsItem = ({ label, percentage }) => {
-    return (
-        <span class="label"> {label} </span>
-        <span class="percentage"> {percentage} </span>
-    );
+const StatisticsItem = ({stats}) => {
+  return stats.map(({ id, label, percentage }) => (
+    <StatsTypeItem key={id} type={label}>
+      <StatsFileExt> {label} </StatsFileExt>
+      <StatsUploadPercentage> {percentage}% </StatsUploadPercentage>
+    </StatsTypeItem>
+  ));
 };
 
-export default StatisticsItem
+StatisticsItem.propTypes = {
+  stats: PropTypes.arrayOf(PropTypes.exact({
+    id: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    percentage: PropTypes.number.isRequired,
+  })),
+};
+
+export default StatisticsItem;
