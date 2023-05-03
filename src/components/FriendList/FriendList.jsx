@@ -7,7 +7,7 @@ import { FriendsList } from './FriendList.styled';
 const FriendList = ({ friends }) => {
   return (
     <Section>
-      <SectionTitle>1 - Профіль соціальної мережі</SectionTitle>
+      <SectionTitle>3 - Список друзів</SectionTitle>
       <FriendsList>
         {friends.map(({ id, isOnline, avatar, name }) => (
           <FriendListItem
