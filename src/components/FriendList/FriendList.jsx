@@ -9,14 +9,27 @@ const FriendList = ({ friends }) => {
     <Section>
       <SectionTitle>1 - Профіль соціальної мережі</SectionTitle>
       <FriendsList>
-        <FriendListItem friendsList={friends} />
+        {friends.map(({ id, isOnline, avatar, name }) => (
+          <FriendListItem
+            key={id}
+            isOnline={isOnline}
+            avatar={avatar}
+            name={name}
+          />
+        ))}
       </FriendsList>
     </Section>
   );
 };
 
 FriendList.propTypes = {
-  friends: PropTypes.array.isRequired,
+  friends: PropTypes.arrayOf(
+    PropTypes.exact({
+      id: PropTypes.number.isRequired,
+      avatar: PropTypes.string,
+      name: PropTypes.string.isRequired,
+      isOnline: PropTypes.bool.isRequired,
+    }))
 };
 
 export default FriendList;
